@@ -151,6 +151,8 @@ export default class RNPickerSelect extends PureComponent {
     this.setInputRef = this.setInputRef.bind(this);
     this.togglePicker = this.togglePicker.bind(this);
     this.renderInputAccessoryView = this.renderInputAccessoryView.bind(this);
+    // コンストラクタ内で追加の初期化処理を行います。
+    this.openPicker = this.openPicker.bind(this); // openPickerメソッドのバインド
   }
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -599,6 +601,12 @@ export default class RNPickerSelect extends PureComponent {
 
     return this.renderAndroidNativePickerStyle();
   }
+
+  // openPickerメソッドを追加
+  openPicker() {
+    this.togglePicker(true); // これによりピッカーが開きます
+  }
+
 }
 
 export { defaultStyles };
